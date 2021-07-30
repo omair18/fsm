@@ -4,7 +4,8 @@
 // Forward declaration to resolve circular dependency/include
 class Fan;
 
-class FanState
+//Interface class
+class IFanState
 {
 public:
 	virtual void enter(Fan* fan) = 0;
@@ -12,7 +13,7 @@ public:
 	void exit(Fan* fan){}
 	void setTemp(double val) {this->mTemperature = val;}
 	double getTemp(){this->mTemperature;}
-	virtual ~FanState() {}
+	virtual ~IFanState() {}
 protected:
 	double mTemperature;
 };

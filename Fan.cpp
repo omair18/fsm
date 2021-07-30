@@ -1,5 +1,8 @@
 #include "Fan.h"
-#include "ConcreteFanStates.h"
+// #include "ConcreteFanStates.h"
+#include "States/StateA.h"
+#include "States/StateB.h"
+#include "States/StateC.h"
 
 Fan::Fan(double temp)
 {
@@ -9,7 +12,7 @@ Fan::Fan(double temp)
 	currentState->enter(this);
 }
 
-void Fan::setState(FanState& newState)
+void Fan::setState(IFanState& newState)
 {
 	// currentState->exit(this);  // do stuff before we change state
 	currentState = &newState;  // actually change states now

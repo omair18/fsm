@@ -1,25 +1,28 @@
 #pragma once
-#include "FanState.h"
+#include "States/IFanState.h"
+#include <iostream>
+#include <chrono>
+#include <thread>
 
 // Forward declaration to resolve circular dependency/include
-class FanState;
+class IFanState;
 
 class Fan
 {
 public:
 	// Fan();
 	Fan(double temp);
-	inline FanState* getCurrentState() const { return currentState; }
+	inline IFanState* getCurrentState() const { return currentState; }
 	void toggle();
 	// This is where the magic happens
-	void setState(FanState& newState);
+	void setState(IFanState& newState);
 	void setRPM(int value){this->mRPM = value;};
 	int getRPM(){ return mRPM; }
 	void setTemp(double value){this->mTemperature = value;}
 	double getTemp(){return mTemperature;}
 
 private:
-	FanState* currentState;
+	IFanState* currentState;
 	int mRPM;
 	double mTemperature;
 

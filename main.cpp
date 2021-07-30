@@ -1,9 +1,8 @@
 #include "Fan.h" 
-#include "ConcreteFanStates.h"
 
 int main() 
 { 
-    class FanState;
+    class IFanState;
 
     double temp;
 
