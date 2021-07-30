@@ -9,12 +9,12 @@ void StateC::toggle(Fan* fan)
 	// Off -> Low
 	while(this->mTemperature > 0)
 	{
-		if(this->mTemperature > 28)
+		if(this->mTemperature > 30)
 		{
 			fan->setState(StateB::getInstance());
 			fan->toggle();
 		}
-		else if (this->mTemperature > 30)
+		else if (this->mTemperature > 32)
 			fan->setState(StateA::getInstance());
 		
 		this->mTemperature+=this->delta;
